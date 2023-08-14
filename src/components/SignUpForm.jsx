@@ -21,7 +21,7 @@ export default function SignUpForm({ setToken }) {
       const result = await response.json();
       setToken(result.token);
     } catch (error) {
-      console.log(result);
+      console.log();
       console.error('Error signing up:', error.message);
     }
   }

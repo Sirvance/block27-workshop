@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { UseState } from "react";
 
 
 // export default function Authenticate() {
 //     return <h2>Authenticate!</h2>;
 //   }
 
-export default function Authenticate({ token }) {
-  const [successMessage, setSuccessMessage] = useState(null);
-  const [error, setError] = useState(null);
+export  function Authenticate({ token }) {
+  const [successMessage, setSuccessMessage] = UseState(null);
+  const [error, setError] = UseState(null);
 
   async function handleClick() {
     try {
