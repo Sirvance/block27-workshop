@@ -1,28 +1,28 @@
 import React, {useState} from 'react';
-import Authenticate from "./Authenticate";
-import SignUpForm from "./Signupform";
+import Authenticate from './authenticate';
+import SignUpForm from "./signupform";
 
 
 
-// export default function App() {
-//   const [token, setToken] = useState(null);
-//   return (
-//     <>
-//       <Authenticate />
-//       <SignUpForm />
-//     </>
-//   );
-// }
-
-export default function App() {
+export function App() {
   const [token, setToken] = useState(null);
-
   return (
-    <>
-      <SignUpForm token={token} setToken={setToken} />
-      <Authenticate token={token} setToken={setToken} />
+  <>
+    <SignUpForm token={token} setToken={setToken} />   
+     <Authenticate token={token} setToken={setToken} />
     </>
   );
 }
+
+// export function() {
+//   const [token, setToken] = useState(null);
+
+//   return (
+//     <>
+//       <SignUpForm token={token} setToken={setToken} />
+//       <Authenticate token={token} setToken={setToken} />
+//     </>
+//   );
+// }
 
 

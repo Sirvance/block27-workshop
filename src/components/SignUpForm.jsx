@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 
 
 export default function SignUpForm({ setToken }) {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -14,26 +15,86 @@ export default function SignUpForm({ setToken }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       const result = await response.json();
       setToken(result.token);
     } catch (error) {
+      console.log(result);
       console.error('Error signing up:', error.message);
     }
   }
 
   return (
-    <div>
+    <>
       <h2>Sign Up</h2>
+      {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
-        {/* Form fields for email and password */}
-        <button type="submit">Sign Up</button>
+        <label>
+          Username:{" "}
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
+        <label>
+          Password:{" "}
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          
+        </label>
+        <button>Submit</button>
       </form>
-    </div>
+    </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   return (
+//     <div>
+//       <h2>Sign Up</h2>
+//       <form onSubmit={handleSubmit}>
+//         {/* Form fields for email and password */}
+//         <button type="submit">Sign Up</button>
+//       </form>
+//       <form>
+//   <label>
+//     Username: <input />
+//   </label>
+//   <label>
+//     Password: <input />
+//   </label>
+//   <button>Submit</button>
+//   <input value={username} onChange={(e) => setUsername(e.target.value)} />
+// </form>
+//     </div>
+//   );
+// }
 
 
 
